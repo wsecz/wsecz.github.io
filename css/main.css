@@ -1249,7 +1249,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f5b005;
+  background: #ffff40;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1589,7 +1589,7 @@ pre .javascript .function {
   }
 }
 .reading-progress-bar {
-  background: #06d633;
+  background: #1E90FF;
   display: block;
   height: 3px;
   left: 0;
@@ -2848,16 +2848,16 @@ span.exturl:hover {
 }
 /* webkit, opera, IE9 */
 ::selection {
-  background: #06d633;
+  background: #1e90ff;
   color: #f7f7f7;
 }
 /* firefox */
 ::-moz-selection {
-  background: #06d633;
+  background: #1e90ff;
   color: #f7f7f7;
 }
 .highlight *::selection {
-  background: #06d633;
+  background: #1e90ff;
 }
 .site-brand-container {
   background-image: url("/images/log-small.png");
