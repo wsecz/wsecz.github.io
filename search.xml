@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/post/4a17b156/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<a id="more"></a>
+
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>test</title>
+    <url>/post/d87f7e0c/</url>
+    <content><![CDATA[<h2 id="也爱上对方"><a href="#也爱上对方" class="headerlink" title="也爱上对方"></a>也爱上对方</h2><h4 id="0x00-HTTP请求方法"><a href="#0x00-HTTP请求方法" class="headerlink" title="0x00 HTTP请求方法"></a>0x00 HTTP请求方法</h4><p>HTTP/1.1协议中共定义了八种方法（有时也叫“动作”），来表明Request-URL指定的资源不同的操作方式</p>
+<a id="more"></a>
+
+<h5 id="OPTIONS"><a href="#OPTIONS" class="headerlink" title="OPTIONS"></a>OPTIONS</h5><p>返回服务器针对特定资源所支持的HTTP请求方法，也可以利用向web服务器发送‘*’的请求来测试服务器的功能性</p>
+<h5 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h5><p>向服务器索与GET请求相一致的响应，只不过响应体将不会被返回。这一方法可以再不必传输整个响应内容的情况下，就可以获取包含在响应小消息头中的元信息。</p>
+<h5 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h5><p>向特定的资源发出请求。注意：GET方法不应当被用于产生“副作用”的操作中，例如在Web Application中，其中一个原因是GET可能会被网络蜘蛛等随意访问。Loadrunner中对应get请求函数：web_link和web_url</p>
+<h5 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h5><p>向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。 Loadrunner中对应POST请求函数：web_submit_data,web_submit_form</p>
+<h5 id="PUT"><a href="#PUT" class="headerlink" title="PUT"></a>PUT</h5><p>向指定资源位置上传其最新内容</p>
+<h5 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h5><p>请求服务器删除Request-URL所标识的资源</p>
+<h5 id="TRACE"><a href="#TRACE" class="headerlink" title="TRACE"></a>TRACE</h5><p>回显服务器收到的请求，主要用于测试或诊断</p>
+<h5 id="CONNECT"><a href="#CONNECT" class="headerlink" title="CONNECT"></a>CONNECT</h5><p>HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</p>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h5><p>1）方法名称是区分大小写的，当某个请求所针对的资源不支持对应的请求方法的时候，服务器应当返回状态码405（Mothod Not Allowed）；当服务器不认识或者不支持对应的请求方法时，应返回状态码501（Not Implemented）。</p>
+<p>2）HTTP服务器至少应该实现GET和HEAD/POST方法，其他方法都是可选的，此外除上述方法，特定的HTTP服务器支持扩展自定义的方法。</p>
+<h4 id="0x01-HTTP请求方法检测手段"><a href="#0x01-HTTP请求方法检测手段" class="headerlink" title="0x01 HTTP请求方法检测手段"></a>0x01 HTTP请求方法检测手段</h4><h5 id="curl命令检测"><a href="#curl命令检测" class="headerlink" title="curl命令检测"></a>curl命令检测</h5><p><strong>curl简介</strong></p>
+<p>curl是利用URL语法在命令行方式下工作的开源文件传输工具。它被广泛应用在Unix、多种Linux发行版中，并且有DOS和Win32、Win64下的移植版本。</p>
+<p>其是很方便的REST客戶端，可以很方便的完成许多REST API测试的需求，甚至如果是需要先登入或认证的REST API，同样也可以进行测试，利用curl指令，可以送出HTTP GET, POST, PUT, DELETE,OPTIONS 也可以改變 HTTP header 来满足使用REST API需要的特定条件。</p>
+<p><strong>curl for windows</strong></p>
+<p>curl工具是linux下的开源工具，但是在windows下通用有相应的版本可以使用，这里贴出了相应的官方下载地址。</p>
+<p>官方下载地址：<a href="https://curl.haxx.se/download.html">https://curl.haxx.se/download.html</a></p>
+<p><img src="https://s2.ax1x.com/2019/09/28/uQKZ5t.png" alt="test"></p>
+<p>爱的色放骄傲的事减肥法空间更大</p>
+]]></content>
+      <categories>
+        <category>Web安全</category>
+      </categories>
+      <tags>
+        <tag>HTTP请求方法检测</tag>
+      </tags>
+  </entry>
+</search>
