@@ -21,31 +21,79 @@
     var CONFIG = {"hostname":"wsecz.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="网络安全">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wsecz&#39;s Blog">
-<meta property="og:url" content="https://wsecz.github.io/index.html">
+  <meta name="description" content="文件上传漏洞简介对于网站来说，文件上传功能本身是一个正常的业务需求。所以文件上传本身没有问题，有问题的是文件上传后，服务器怎么处理、解释文件。如果服务器的处理逻辑做的不够安全，则会导致严重的后果。 漏洞概述文件上传漏洞是指用户上传了一个可执行的脚本文件，并通过此脚本文件获得了执行服务器端命令的能力。 常见危害 上传文件是Web脚本语言，服务器的Web容器解释并执行了用户上传的脚本，导致代码执行 上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件上传漏洞">
+<meta property="og:url" content="https://wsecz.github.io/post/931c692.html">
 <meta property="og:site_name" content="wsecz&#39;s Blog">
-<meta property="og:description" content="网络安全">
+<meta property="og:description" content="文件上传漏洞简介对于网站来说，文件上传功能本身是一个正常的业务需求。所以文件上传本身没有问题，有问题的是文件上传后，服务器怎么处理、解释文件。如果服务器的处理逻辑做的不够安全，则会导致严重的后果。 漏洞概述文件上传漏洞是指用户上传了一个可执行的脚本文件，并通过此脚本文件获得了执行服务器端命令的能力。 常见危害 上传文件是Web脚本语言，服务器的Web容器解释并执行了用户上传的脚本，导致代码执行 上">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6aAbT.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6auG9.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6a1r6.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6aRRs.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6wZ9J.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6wmcR.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6w84e.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6w63j.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6wI5F.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6w78J.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6wxUO.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6098H.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t60uGQ.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t60Bs1.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t60giD.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t60qJg.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6BEl9.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6BuTK.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6Btmt.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6B27V.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6B5p4.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6DPBt.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6D1EV.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6DtgJ.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6DyCD.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6Dgvd.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6DLKs.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6r9GF.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6rVVx.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6ruGD.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6rNi8.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6rsZq.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6r5LR.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6rjQH.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6sSeI.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6sASg.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6smmn.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6sN01.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6sr1e.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6socQ.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6y68U.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6yI56.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6yLKH.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6yXqA.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/06/t6yzIP.jpg">
+<meta property="article:published_time" content="2020-06-06T08:04:15.000Z">
+<meta property="article:modified_time" content="2020-08-22T08:41:01.989Z">
 <meta property="article:author" content="wsecz">
-<meta property="article:tag" content="网络安全">
+<meta property="article:tag" content="文件上传漏洞">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/06/t6aAbT.jpg">
 
-<link rel="canonical" href="https://wsecz.github.io/">
+<link rel="canonical" href="https://wsecz.github.io/post/931c692.html">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>wsecz's Blog</title>
+  <title>文件上传漏洞 | wsecz's Blog</title>
   
 
 
@@ -188,181 +236,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wsecz.github.io/post/d87f7e0c.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="wsecz">
-      <meta itemprop="description" content="网络安全">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wsecz's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/d87f7e0c.html" class="post-title-link" itemprop="url">test</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-22 11:19:57 / 修改时间：12:39:48" itemprop="dateCreated datePublished" datetime="2020-08-22T11:19:57+08:00">2020-08-22</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">Web安全</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="也爱上对方"><a href="#也爱上对方" class="headerlink" title="也爱上对方"></a>也爱上对方</h2><h4 id="0x00-HTTP请求方法"><a href="#0x00-HTTP请求方法" class="headerlink" title="0x00 HTTP请求方法"></a>0x00 HTTP请求方法</h4><p>HTTP/1.1协议中共定义了八种方法（有时也叫“动作”），来表明Request-URL指定的资源不同的操作方式</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/d87f7e0c.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wsecz.github.io/post/4a17b156.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="wsecz">
-      <meta itemprop="description" content="网络安全">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wsecz's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/4a17b156.html" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-22 10:14:47 / 修改时间：12:23:59" itemprop="dateCreated datePublished" datetime="2020-08-22T10:14:47+08:00">2020-08-22</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>367</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/4a17b156.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -378,10 +255,9 @@
       <meta itemprop="name" content="wsecz's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/post/931c692.html" class="post-title-link" itemprop="url">文件上传漏洞</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          文件上传漏洞
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -434,7 +310,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="文件上传漏洞简介"><a href="#文件上传漏洞简介" class="headerlink" title="文件上传漏洞简介"></a>文件上传漏洞简介</h2><p>对于网站来说，文件上传功能本身是一个正常的业务需求。所以文件上传本身没有问题，有问题的是文件上传后，服务器怎么处理、解释文件。如果服务器的处理逻辑做的不够安全，则会导致严重的后果。</p>
+        <h2 id="文件上传漏洞简介"><a href="#文件上传漏洞简介" class="headerlink" title="文件上传漏洞简介"></a>文件上传漏洞简介</h2><p>对于网站来说，文件上传功能本身是一个正常的业务需求。所以文件上传本身没有问题，有问题的是文件上传后，服务器怎么处理、解释文件。如果服务器的处理逻辑做的不够安全，则会导致严重的后果。</p>
 <h3 id="漏洞概述"><a href="#漏洞概述" class="headerlink" title="漏洞概述"></a>漏洞概述</h3><p>文件上传漏洞是指用户上传了一个可执行的脚本文件，并通过此脚本文件获得了执行服务器端命令的能力。</p>
 <h3 id="常见危害"><a href="#常见危害" class="headerlink" title="常见危害"></a>常见危害</h3><ul>
 <li>上传文件是Web脚本语言，服务器的Web容器解释并执行了用户上传的脚本，导致代码执行</li>
@@ -752,21 +628,51 @@
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://ca0y1h.top/Web_security/basic_learning/16.%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/#pass-17-%E5%88%A9%E7%94%A8%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6%E7%BB%95%E8%BF%87">https://ca0y1h.top/Web_security/basic_learning/16.%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8/#pass-17-%E5%88%A9%E7%94%A8%E7%AB%9E%E4%BA%89%E6%9D%A1%E4%BB%B6%E7%BB%95%E8%BF%87</a></p>
 
-      
     </div>
 
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>wsecz
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wsecz.github.io/post/931c692.html" title="文件上传漏洞">https://wsecz.github.io/post/931c692.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          
+          <div class="post-tags">
+              <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E/" rel="tag"><i class="fa fa-tag"></i> 文件上传漏洞</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/post/4a17b156.html" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -819,6 +725,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%BC%8F%E6%B4%9E%E7%AE%80%E4%BB%8B"><span class="nav-text">文件上传漏洞简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E6%A6%82%E8%BF%B0"><span class="nav-text">漏洞概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%8D%B1%E5%AE%B3"><span class="nav-text">常见危害</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E4%B8%8A%E4%BC%A0%E7%82%B9"><span class="nav-text">常见上传点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Webshell%E7%AE%80%E4%BB%8B"><span class="nav-text">Webshell简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%95%E8%BF%87%E6%8A%80%E5%B7%A7"><span class="nav-text">绕过技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%BB%95%E8%BF%87"><span class="nav-text">客户端绕过</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E9%AA%8C%E8%AF%81%E7%BB%95%E8%BF%87"><span class="nav-text">前端验证绕过</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BB%95%E8%BF%87"><span class="nav-text">服务端绕过</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%BB%91%E5%90%8D%E5%8D%95%E7%BB%95%E8%BF%87"><span class="nav-text">黑名单绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B%E7%BB%95%E8%BF%87"><span class="nav-text">文件类型绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B4%E6%A3%80%E6%B5%8B%E7%BB%95%E8%BF%87"><span class="nav-text">文件头检测绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E6%B8%B2%E6%9F%93%E7%BB%95%E8%BF%87"><span class="nav-text">二次渲染绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E5%90%88%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E"><span class="nav-text">结合文件包含漏洞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E5%90%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E"><span class="nav-text">结合服务器解析漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#IIS5-X-6-0"><span class="nav-text">IIS5.X&#x2F;6.0</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Nginx"><span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Apache"><span class="nav-text">Apache</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E5%90%88%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99"><span class="nav-text">结合操作系统文件命名规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#00%E6%88%AA%E6%96%AD%E7%BB%95%E8%BF%87"><span class="nav-text">00截断绕过</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%8F%E6%B4%9E%E9%9D%B6%E5%9C%BA"><span class="nav-text">漏洞靶场</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DVWA"><span class="nav-text">DVWA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#File-Upload-Low"><span class="nav-text">File Upload Low</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#File-Upload-Medium"><span class="nav-text">File Upload Medium</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#File-Upload-High"><span class="nav-text">File Upload High</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Upload-Labs"><span class="nav-text">Upload-Labs</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3-JS%E6%A3%80%E6%9F%A5"><span class="nav-text">第一关 JS检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3-Content-type%E6%A3%80%E6%9F%A5"><span class="nav-text">第二关 Content-type检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3-%E9%BB%91%E5%90%8D%E5%8D%95%E6%A3%80%E6%B5%8B"><span class="nav-text">第三关 黑名单检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3-htaccess%E7%BB%95%E8%BF%87"><span class="nav-text">第四关 .htaccess绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E5%85%B3-url%E8%A7%A3%E7%A0%81%E7%BB%95%E8%BF%87"><span class="nav-text">第五关 url解码绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E5%85%B3-%E5%A4%A7%E5%B0%8F%E5%86%99%E7%BB%95%E8%BF%87"><span class="nav-text">第六关 大小写绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E5%85%B3-%E7%A9%BA%E6%A0%BC%E7%BB%95%E8%BF%87"><span class="nav-text">第七关 空格绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E5%85%B3-%E7%BB%95%E8%BF%87"><span class="nav-text">第八关 .绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E5%85%B3-DATA%E7%BB%95%E8%BF%87"><span class="nav-text">第九关 ::$DATA绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E5%85%B3-%E7%BB%95%E8%BF%87"><span class="nav-text">第十关 . .绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E5%85%B3-%E5%8F%8C%E5%86%99%E7%BB%95%E8%BF%87"><span class="nav-text">第十一关 双写绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E5%85%B3-00%E6%88%AA%E6%96%AD"><span class="nav-text">第十二关 00截断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E5%85%B3-00%E6%88%AA%E6%96%AD"><span class="nav-text">第十三关 00截断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B-%E5%8D%81%E5%85%AD%E5%85%B3-%E7%BB%93%E5%90%88%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E"><span class="nav-text">第十四~十六关 结合文件包含漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%81%E5%9B%9B%E5%85%B3"><span class="nav-text">十四关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%81%E4%BA%94%E5%85%B3"><span class="nav-text">十五关</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%81%E5%85%AD%E5%85%B3"><span class="nav-text">十六关</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%83%E5%85%B3-%E4%BA%8C%E6%AC%A1%E6%B8%B2%E6%9F%93%E7%BB%95%E8%BF%87"><span class="nav-text">第十七关 二次渲染绕过</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#gif%E5%9B%BE%E7%89%87%E7%BB%95%E8%BF%87"><span class="nav-text">gif图片绕过</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#jpg%E5%9B%BE%E7%89%87%E7%BB%95%E8%BF%87"><span class="nav-text">jpg图片绕过</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#png%E5%9B%BE%E7%89%87%E7%BB%95%E8%BF%87"><span class="nav-text">png图片绕过</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AB%E5%85%B3-%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89%E7%BB%95%E8%BF%87"><span class="nav-text">第十八关 条件竞争绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B9%9D%E5%85%B3-%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89-%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E7%BB%95%E8%BF%87"><span class="nav-text">第十九关 条件竞争+文件解析绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%B3-%E5%88%A9%E7%94%A8-%E7%BB%95%E8%BF%87"><span class="nav-text">第二十关 利用.&#x2F;绕过</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%80%E5%85%B3-%E6%95%B0%E7%BB%84-%E7%BB%95%E8%BF%87"><span class="nav-text">第二十一关 数组+.&#x2F;绕过</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E5%A4%8D%E5%BB%BA%E8%AE%AE"><span class="nav-text">修复建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
